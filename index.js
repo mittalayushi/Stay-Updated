@@ -35,7 +35,7 @@ app.get('/', function (req, res) {
     //res.json({'GET request to the homepage':'bar'});
     res.send(str);
 })
-/*
+
 var category_schema = mongoose.Schema({
     name: String
 })
@@ -67,5 +67,3 @@ app.get('/categories', function (req, res) {
 	//var obj = JSON.parse();
     //res.json({'GET request to the homepage':'bar'});
 })
-*/
-
