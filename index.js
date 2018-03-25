@@ -6,9 +6,11 @@ var mongoose=require('mongoose');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://admin:admin@ds221609.mlab.com')
+mongoose.connect('mongodb://admin:admin@ds221609.mlab.com:21609/newsapi');
 // mongoose.connect('mongodb://localhost/test');
 var db=mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
 db.once('open',function () {
     console.log("Connected to DB");
 });
@@ -27,6 +29,13 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function () {
     console.log("Server running on port " + app.get('port'));
 });
+app.get('/', function (req, res) {
+    str='Hello Aayushi'
+    //var obj = JSON.parse();
+    //res.json({'GET request to the homepage':'bar'});
+    res.send(str);
+})
+/*
 var category_schema = mongoose.Schema({
     name: String
 })
@@ -49,13 +58,6 @@ app.route('/new').post(function(req,res){
 
 // var str = '{category:["string","abcd"]}';
 
-app.get('/', function (req, res) {
-	str='Hello Aayushi'
-	//var obj = JSON.parse();
-    //res.json({'GET request to the homepage':'bar'});
-    res.send(str);
-})
-
 app.get('/categories', function (req, res) {
 	Category.find({},function(err,info){
         if(info){
@@ -65,4 +67,5 @@ app.get('/categories', function (req, res) {
 	//var obj = JSON.parse();
     //res.json({'GET request to the homepage':'bar'});
 })
+*/
 
