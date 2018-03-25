@@ -47,7 +47,7 @@ app.route('/new').post(function(req,res){
     new_cat.save(function(err,info) {
         if(info){
             console.log("Saved.");
-            res.send("I love you!");
+            res.send("Saved!");
         }
         if (err) {
             console.log("Error");
