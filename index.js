@@ -32,7 +32,7 @@ app.get('/', function (req, res) {
 	str='Hello Aayushi'
 	//var obj = JSON.parse();
     //res.json({'GET request to the homepage':'bar'});
-    res.send(obj);
+    res.send(str);
 })
 
 app.get('/categories', function (req, res) {
