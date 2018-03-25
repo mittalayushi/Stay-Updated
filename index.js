@@ -6,8 +6,8 @@ var mongoose=require('mongoose');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-//mongoose.connect('mongodb://admin:admin@ds221609.mlab.com')
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://admin:admin@ds221609.mlab.com')
+// mongoose.connect('mongodb://localhost/test');
 var db=mongoose.connection;
 db.once('open',function () {
     console.log("Connected to DB");
@@ -46,6 +46,8 @@ app.route('/new').post(function(req,res){
 
 });
 });
+
+// var str = '{category:["string","abcd"]}';
 
 app.get('/', function (req, res) {
 	str='Hello Aayushi'
