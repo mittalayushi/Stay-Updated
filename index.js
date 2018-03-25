@@ -27,6 +27,25 @@ app.set('port', (process.env.PORT || 3000));
 app.listen(app.get('port'), function () {
     console.log("Server running on port " + app.get('port'));
 });
+var category_schema = mongoose.Schema({
+    name: String
+})
+var Category = mongoose.model('categories', category_schema);
+
+app.route('/new').post(function(req,res){
+    var name = req.body.name;
+    var new_cat = new Category({name:name});
+    new_cat.save(function(err,info) {
+        if(info){
+            console.log("Saved.");
+            res.send("I love you!");
+        }
+        if (err) {
+            console.log("Error");
+        }
+
+});
+});
 
 app.get('/', function (req, res) {
 	str='Hello Aayushi'
@@ -36,10 +55,12 @@ app.get('/', function (req, res) {
 })
 
 app.get('/categories', function (req, res) {
-	str = '{"category":["sports","world","bollywood","politics","science"]}'
-	var obj = JSON.parse(str);
+	Category.find({},function(err,info){
+        if(info){
+            res.send(info);
+        }
+    })
 	//var obj = JSON.parse();
     //res.json({'GET request to the homepage':'bar'});
-    res.send(obj);
 })
 
