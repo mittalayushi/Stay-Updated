@@ -88,14 +88,15 @@ app.route('/update').post(function(req,res){
     //pref_category = JSON.parse(pref_category);
     //pref_publishers = JSON.parse(pref_publisher);
     //var conditions = { email:email_id}
-    user.update({email: email_id},{$set:{country:pref_country/*,pref_categories:pref_category,pref_publishers:pref_publishers*/}},function(err,info){
+    /*user.update({email: email_id},{$set:{country:pref_country,pref_categories:pref_category,pref_publishers:pref_publishers}},function(err,info){
         if(info){
             res.json({'msg':'updated'});
         }
         if(err){
             res.json({'msg':'error updating'})
         }
-    })
+    })*/
+	res.send("entering end point");
 });
 //==============================================================================================================================
 app.route('/prefcategories').post(function(req,res){
