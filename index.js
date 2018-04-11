@@ -83,12 +83,12 @@ app.route('/login').post(function(req,res){
 app.route('/update').post(function(req,res){
     var email_id = req.body.emailid;
     var pref_category = req.body.pref_category;
-    var pref_country = req.body.country;
-    var pref_publisher = req.body.pref_publishers;
-    pref_category = JSON.parse(pref_category);
-    pref_publishers = JSON.parse(pref_publisher);
+    //var pref_country = req.body.country;
+    vvvar pref_publisher = req.body.pref_publishers;
+    //pref_category = JSON.parse(pref_category);
+    //pref_publishers = JSON.parse(pref_publisher);
     //var conditions = { email:email_id}
-    user.update({email: email_id},{$set:{country:pref_country,pref_categories:pref_category,pref_publishers:pref_publishers}},function(err,info){
+    user.update({email: email_id},{$set:{country:pref_country/*,pref_categories:pref_category,pref_publishers:pref_publishers*/}},function(err,info){
         if(info){
             res.json({'msg':'updated'});
         }
