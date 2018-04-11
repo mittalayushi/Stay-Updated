@@ -89,7 +89,8 @@ app.route('/update').post(function(req,res){
     //pref_publishers = JSON.parse(pref_publisher);
     //var conditions = { email:email_id}
     user.update({email: email_id},{$set:{country:pref_country/*,pref_categories:pref_category,pref_publishers:pref_publishers*/}},function(err,info){
-        if(info){
+        console.log("in update query");
+	if(info){
             res.json({'msg':'updated'});
         }
         if(err){
